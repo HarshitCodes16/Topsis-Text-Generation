@@ -38,7 +38,7 @@ We compare multiple pre-trained models based on the following criteria:
 
 ## 🧪 Evaluation Pipeline
 
-All experiments were performed in `evaluation.ipynb`:
+All experiments were performed in `evaluation(2).ipynb`:
 
 1. Each model is given the same prompts
 2. Text is generated
