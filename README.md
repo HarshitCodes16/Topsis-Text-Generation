@@ -1,4 +1,4 @@
-# TOPSIS for Selecting Best Pre-trained Text Generation Model
+# 🏆 TOPSIS for Selecting Best Pre-trained Text Generation Model
 
 ## 📌 Assignment
 
@@ -36,22 +36,129 @@ We compare multiple pre-trained models based on the following criteria:
 
 ---
 
-## 🧪 Evaluation Pipeline
+## 🧪 Overall Workflow
 
-All experiments were performed in `evaluation(2).ipynb`:
-
-1. Each model is given the same prompts
-2. Text is generated
-3. Metrics are computed:
-   - BLEU
-   - ROUGE
-   - Time taken
-   - Output length
-4. Results are stored in `raw_results.csv`
-5. TOPSIS is applied using `topsis_part1.py`
-6. Final results are stored in `final_result.csv`
+1. Run the notebook to evaluate models and generate `raw_results.csv`
+2. Apply **TOPSIS using command line** on `raw_results.csv`
+3. Generate `final_result.csv`
+4. Generate plots and visualize results
 
 ---
+
+## 📁 Repository Structure
+
+```
+Topsis-Text-Generation/
+├── evaluation(2).ipynb
+├── topsis_part1.py
+├── raw_results.csv
+├── final_result.csv
+├── topsis_score_comparison.png
+├── time_comparison.png
+├── rouge_comparison.png
+└── README.md
+```
+
+
+---
+
+## ⚙️ Installation
+
+Install all required libraries using:
+
+```bash
+pip install torch transformers nltk rouge-score pandas numpy matplotlib scikit-learn
+
+
+🧪 Step 1: Generate Raw Results
+
+Open and run:
+
+evaluation(2).ipynb
+
+
+This notebook will:
+
+Load all models
+
+Generate text using same prompts
+
+Compute:
+
+BLEU
+
+ROUGE
+
+Time taken
+
+Output length
+
+Save the results into:
+
+raw_results.csv
+
+📊 Step 2: Apply TOPSIS (IMPORTANT)
+
+After raw_results.csv is generated, apply TOPSIS using command line.
+
+🔹 Command Format
+python topsis_part1.py <InputDataFile> <Weights> <Impacts> <ResultFileName>
+
+🔹 Parameters
+
+InputDataFile
+Path to CSV file (here: raw_results.csv)
+
+Weights
+Comma-separated importance of each criterion
+Example:
+
+"1,1,1,1"
+
+
+Impacts
++ means higher is better, - means lower is better
+
+For this project:
+
+BLEU → +
+
+ROUGE → +
+
+Time → -
+
+Length → -
+
+So impacts:
+
+"+,+,-,-"
+
+
+ResultFileName
+Output file name:
+
+final_result.csv
+
+▶️ Exact Command to Run
+
+Open terminal in the project folder and run:
+
+python topsis_part1.py raw_results.csv "1,1,1,1" "+,+,-,-" final_result.csv
+
+📄 Step 3: Output File
+
+After running the above command, a new file will be created:
+
+final_result.csv
+
+
+This file contains:
+
+Normalized values
+
+TOPSIS Score
+
+Final Rank
 
 ## 📊 Table 1: Raw Results (Before TOPSIS)
 
@@ -108,6 +215,7 @@ This table contains:
 
 Based on the TOPSIS evaluation using multiple criteria (BLEU, ROUGE, Time, and Length), **T5-small** achieved the highest TOPSIS score and is therefore selected as the **best overall pre-trained text generation model** among the evaluated models.
 
----
 
+👨‍💻 Author
 
+Harshit Katyal
