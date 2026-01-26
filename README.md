@@ -82,7 +82,7 @@ pip install torch transformers nltk rouge-score pandas numpy matplotlib scikit-l
 After `raw_results.csv` is generated, open terminal in the project folder and run TOPSIS.
 
 ### 🔹 Command Format
-python topsis_part1.py <InputCSV> <Weights> <Impacts> <OutputCSV>
+python topsis_part1.py InputCSV Weights Impacts OutputCSV
 
 
 ### 🔹 Meaning of parameters
@@ -190,6 +190,6 @@ This table contains:
 Based on the TOPSIS evaluation using multiple criteria (BLEU, ROUGE, Time, and Length), **T5-small** achieved the highest TOPSIS score and is therefore selected as the **best overall pre-trained text generation model** among the evaluated models.
 
 
-👨‍💻 Author
+## 👨‍💻 Author
 
 Harshit Katyal
