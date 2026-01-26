@@ -27,24 +27,6 @@ We compare multiple pre-trained models based on the following criteria:
 
 ---
 
-## 🤖 Models Compared
-
-- GPT2  
-- DistilGPT2  
-- T5-small  
-- BART-small  
-
----
-
-## 🧪 Overall Workflow
-
-1. Run the notebook to evaluate models and generate `raw_results.csv`
-2. Apply **TOPSIS using command line** on `raw_results.csv`
-3. Generate `final_result.csv`
-4. Generate plots and visualize results
-
----
-
 ## 📁 Repository Structure
 
 ```
@@ -62,6 +44,15 @@ Topsis-Text-Generation/
 
 ---
 
+## 🤖 Models Compared
+
+- GPT2  
+- DistilGPT2  
+- T5-small  
+- BART-small  
+
+---
+
 ## ⚙️ Installation
 
 Install all required libraries using:
@@ -70,95 +61,78 @@ Install all required libraries using:
 pip install torch transformers nltk rouge-score pandas numpy matplotlib scikit-learn
 
 
-🧪 Step 1: Generate Raw Results
+## 🧪 Overall Workflow
 
-Open and run:
+1. **Run the evaluation notebook**
 
-evaluation(2).ipynb
+   Open and run:
+   evaluation(2).ipynb
+   This will:
+    - Run all models on the same prompts
+    - Compute:
+      - BLEU
+      - ROUGE
+      - Time taken
+      - Output length
+    - Save the results into:
+       raw_results.csv
 
+ 2. **Apply TOPSIS using command line**
 
-This notebook will:
+After `raw_results.csv` is generated, open terminal in the project folder and run TOPSIS.
 
-Load all models
-
-Generate text using same prompts
-
-Compute:
-
-BLEU
-
-ROUGE
-
-Time taken
-
-Output length
-
-Save the results into:
-
-raw_results.csv
-
-📊 Step 2: Apply TOPSIS (IMPORTANT)
-
-After raw_results.csv is generated, apply TOPSIS using command line.
-
-🔹 Command Format
-python topsis_part1.py <InputDataFile> <Weights> <Impacts> <ResultFileName>
-
-🔹 Parameters
-
-InputDataFile
-Path to CSV file (here: raw_results.csv)
-
-Weights
-Comma-separated importance of each criterion
-Example:
-
-"1,1,1,1"
+### 🔹 Command Format
+python topsis_part1.py <InputCSV> <Weights> <Impacts> <OutputCSV>
 
 
-Impacts
-+ means higher is better, - means lower is better
+### 🔹 Meaning of parameters
 
-For this project:
+- **InputCSV** → Input file (`raw_results.csv`)
+- **Weights** → Importance of each column (example: `"1,1,1,1"`)
+- **Impacts** →  
+  `+` means higher is better, `-` means lower is better  
 
-BLEU → +
+  For this project:
+  - BLEU → +
+  - ROUGE → +
+  - Time → -
+  - Length → -
 
-ROUGE → +
+  So impacts:
 
-Time → -
+  ```
+  "+,+,-,-"
+  ```
 
-Length → -
+- **OutputCSV** → Output file name (`final_result.csv`)
 
-So impacts:
-
-"+,+,-,-"
-
-
-ResultFileName
-Output file name:
-
-final_result.csv
-
-▶️ Exact Command to Run
-
-Open terminal in the project folder and run:
+### ▶️ Actual Command Used
 
 python topsis_part1.py raw_results.csv "1,1,1,1" "+,+,-,-" final_result.csv
-
-📄 Step 3: Output File
-
-After running the above command, a new file will be created:
-
+This will create:
 final_result.csv
 
+which contains:
+- TOPSIS Score
+- Rank of each model
 
-This file contains:
+---
 
-Normalized values
+3. **Visualize and analyze results**
 
-TOPSIS Score
+Using `final_result.csv`, graphs are generated:
 
-Final Rank
+- TOPSIS Score Comparison
+- Time Comparison
+- ROUGE Comparison
+
+And the **best model is selected based on TOPSIS rank**.
+
+---
+
+---
+
+
 
 ## 📊 Table 1: Raw Results (Before TOPSIS)
 
