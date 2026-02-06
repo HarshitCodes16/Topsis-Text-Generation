@@ -31,7 +31,7 @@ We compare multiple pre-trained models based on the following criteria:
 
 ```
 Topsis-Text-Generation/
-├── evaluation(2).ipynb
+├── evaluation.py
 ├── topsis_part1.py
 ├── raw_results.csv
 ├── final_result.csv
@@ -66,7 +66,7 @@ pip install torch transformers nltk rouge-score pandas numpy matplotlib scikit-l
 1. **Run the evaluation notebook**
 
    Open and run:
-   evaluation(2).ipynb
+   evaluation.py
    This will:
     - Run all models on the same prompts
     - Compute:
