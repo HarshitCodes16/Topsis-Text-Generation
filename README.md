@@ -1,11 +1,11 @@
-# 🏆 TOPSIS for Selecting Best Pre-trained Text Generation Model
+# TOPSIS for Selecting Best Pre-trained Text Generation Model
 
-## 📌 Assignment
+## Assignment
 
 Apply **TOPSIS** to find the **best pre-trained model** for:
 
 - Text Summarization (Roll Numbers ending with 0 or 5)  
-- ✅ **Text Generation (Roll Numbers ending with 1 or 6)**  
+- **Text Generation (Roll Numbers ending with 1 or 6)**  
 - Text Classification (Roll Numbers ending with 2 or 7)  
 - Text Sentence Similarity (Roll Numbers ending with 3 or 8)  
 - Text Conversational (Roll Numbers ending with 4 or 9)  
@@ -14,7 +14,7 @@ Apply **TOPSIS** to find the **best pre-trained model** for:
 
 ---
 
-## 📖 Problem Statement
+##  Problem Statement
 
 The goal of this project is to **select the best pre-trained text generation model** using the **TOPSIS (Technique for Order Preference by Similarity to Ideal Solution)** multi-criteria decision-making method.
 
@@ -27,7 +27,7 @@ We compare multiple pre-trained models based on the following criteria:
 
 ---
 
-## 📁 Repository Structure
+##  Repository Structure
 
 ```
 Topsis-Text-Generation/
@@ -44,7 +44,7 @@ Topsis-Text-Generation/
 
 ---
 
-## 🤖 Models Compared
+##  Models Compared
 
 - GPT2  
 - DistilGPT2  
@@ -61,7 +61,7 @@ Install all required libraries using:
 pip install torch transformers nltk rouge-score pandas numpy matplotlib scikit-learn
 ```
 
-## 🧪 Overall Workflow
+##  Overall Workflow
 
 1. **Run the evaluation notebook**
 
@@ -81,11 +81,11 @@ pip install torch transformers nltk rouge-score pandas numpy matplotlib scikit-l
 
 After `raw_results.csv` is generated, open terminal in the project folder and run TOPSIS.
 
-### 🔹 Command Format
+### Command Format
 python topsis_part1.py InputCSV Weights Impacts OutputCSV
 
 
-### 🔹 Meaning of parameters
+### Meaning of parameters
 
 - **InputCSV** → Input file (`raw_results.csv`)
 - **Weights** → Importance of each column (example: `"1,1,1,1"`)
@@ -106,7 +106,7 @@ python topsis_part1.py InputCSV Weights Impacts OutputCSV
 
 - **OutputCSV** → Output file name (`final_result.csv`)
 
-### ▶️ Actual Command Used
+### Actual Command Used
 
 python topsis_part1.py raw_results.csv "1,1,1,1" "+,+,-,-" final_result.csv
 This will create:
@@ -134,15 +134,15 @@ And the **best model is selected based on TOPSIS rank**.
 
 
 
-## 📊 Table 1: Raw Results (Before TOPSIS)
+## Table 1: Raw Results (Before TOPSIS)
 
 This table contains the **actual measured performance** of each model:
 
-📄 File: `raw_results.csv`
+File: `raw_results.csv`
 
 ---
 
-## 🏆 Table 2: Final Results (After TOPSIS)
+## Table 2: Final Results (After TOPSIS)
 
 This table contains:
 
@@ -150,42 +150,42 @@ This table contains:
 - TOPSIS Score
 - Final Rank
 
-📄 File: `final_result.csv`
+File: `final_result.csv`
 
 ---
 
-## 📈 Graphs and Visualizations
+## Graphs and Visualizations
 
-### 1️⃣ TOPSIS Score Comparison
+### 1️) TOPSIS Score Comparison
 
 ![TOPSIS Score Comparison](topsis_score_comparison.png)
 
 ---
 
-### 2️⃣ Time Comparison
+### 2️) Time Comparison
 
 ![Time Comparison](time_comparison.png)
 
 ---
 
-### 3️⃣ ROUGE Score Comparison
+### 3️) ROUGE Score Comparison
 
 ![ROUGE Comparison](rouge_comparison.png)
 
 ---
 
-## 🥇 Final Ranking (Based on TOPSIS)
+## Final Ranking (Based on TOPSIS)
 
 | Rank | Model |
 |------|--------|
-| 1️⃣ | **T5-small** |
-| 2️⃣ | GPT2 |
-| 3️⃣ | DistilGPT2 |
-| 4️⃣ | BART-small |
+| 1️) | **T5-small** |
+| 2️) | GPT2 |
+| 3️) | DistilGPT2 |
+| 4️) | BART-small |
 
 ---
 
-## 🧠 Conclusion
+## Conclusion
 
 Based on the TOPSIS evaluation using multiple criteria (BLEU, ROUGE, Time, and Length), **T5-small** achieved the highest TOPSIS score and is therefore selected as the **best overall pre-trained text generation model** among the evaluated models.
 
