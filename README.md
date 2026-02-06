@@ -53,7 +53,7 @@ Topsis-Text-Generation/
 
 ---
 
-## ⚙️ Installation
+## Installation
 
 Install all required libraries using:
 
@@ -190,6 +190,6 @@ File: `final_result.csv`
 Based on the TOPSIS evaluation using multiple criteria (BLEU, ROUGE, Time, and Length), **T5-small** achieved the highest TOPSIS score and is therefore selected as the **best overall pre-trained text generation model** among the evaluated models.
 
 
-## 👨‍💻 Author
+## Author
 
 Harshit Katyal
